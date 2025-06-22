@@ -1,0 +1,20 @@
+.top{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.top span{
+    width: 50%;
+    text-align: justify;
+    line-height: 35px;
+    font-size: 1.2rem;
+}
+.top img{
+    width: 40%;
+    height: 250px;
+    border-radius: 10px;
+    box-shadow: 8px 10px 8px rgb(92, 92, 92);
+}
+p{
+    line-height: 1.2rem;
+}
