@@ -4,6 +4,7 @@ import WhatisReact from "./WhatisReact";
 import WhatisJs from "./WhatisJs";
 import HtmlCss from "./HtmlCss";
 import NextJs from "./NextJs";
+import Modal from "./Modal";
 
 function App() {
   const tab = localStorage.getItem("tab");
@@ -30,7 +31,7 @@ function App() {
       case "nextjs":
         return <NextJs />;
       default:
-        return "Please Selcet Tab";
+        return <Modal/>;
     }
   };
   return (

@@ -1,0 +1,36 @@
+.container-modal{
+    width: 450px;
+    height: 200px;
+    margin:200px auto;
+    border-radius: 15px;
+    background-color: white;
+    overflow: hidden;
+}
+.modal-head{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 50px;
+    background-color: #5858af;
+    box-shadow: 1px 2px 8px grey;
+}
+
+.modal-head button:hover{
+    transform: scale(1.1);
+}
+.modal-body{
+    display: flex;
+    justify-content: center;
+    height: 120px;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color:  #5858af;
+}
+.round{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-left: 10px;
+    box-shadow: inset 1px 1px 5px rgb(175, 175, 175);
+}
