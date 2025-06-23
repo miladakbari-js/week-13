@@ -10,11 +10,14 @@
     font-size: 1.2rem;
 }
 .top img{
-    width: 40%;
-    height: 250px;
+    width: 250px;
+    height: 120px;
     border-radius: 10px;
     box-shadow: 8px 10px 8px rgb(92, 92, 92);
 }
 p{
     line-height: 1.2rem;
+}
+h4{
+    margin: 0;
 }
