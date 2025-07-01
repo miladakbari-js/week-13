@@ -2,7 +2,7 @@ import topics from "./constants/data.js";
 import "./App.css";
 import { useEffect, useState } from "react";
 import Content from "./components/Content.jsx";
-import Modal from "./Modal.jsx";
+import Modal from "./components/Modal.jsx";
 
 function App() {
   const tab = localStorage.getItem("tab");
