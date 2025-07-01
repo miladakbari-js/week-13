@@ -61,3 +61,7 @@ main{
   height: 600px;
   padding: 15px;
 }
+.active{
+   background-color: #7618ce;
+  color: #fff;
+}

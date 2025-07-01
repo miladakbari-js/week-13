@@ -1,78 +1,48 @@
+import topics from "./constants/data.js";
 import "./App.css";
-import { useState } from "react";
-import WhatisReact from "./WhatisReact";
-import WhatisJs from "./WhatisJs";
-import HtmlCss from "./HtmlCss";
-import NextJs from "./NextJs";
-import Modal from "./Modal";
+import { useEffect, useState } from "react";
+import Content from "./components/Content.jsx";
+import Modal from "./Modal.jsx";
 
 function App() {
   const tab = localStorage.getItem("tab");
-  const [activeTab, setActiveTab] = useState(tab);
-  localStorage.setItem("tab", activeTab);
+  const [activeTab, setActiveTab] = useState(tab === "null" || !tab ? null : tab);
+  
 
-  const clickHandler = (event) => {
-    const tabName = event.target.dataset.name;
-    console.log(tabName);
-    setActiveTab(tabName);
-  };
-
-  const renderContent = () => {
-    switch (activeTab) {
-      case "react":
-        return <WhatisReact />;
-
-      case "javascript":
-        return <WhatisJs />;
-
-      case "htmlcss":
-        return <HtmlCss />;
-
-      case "nextjs":
-        return <NextJs />;
-      default:
-        return <Modal/>;
+  useEffect(() => {
+    if (activeTab) {
+      localStorage.setItem("tab", activeTab);
     }
-  };
+  }, [activeTab]);
+
   return (
     <>
       <div className="container">
         <header>
           <h1>Task-week13</h1>
           <nav>
-            <button
-              onClick={clickHandler}
-              data-name="htmlcss"
-              className={activeTab === "htmlcss" ? "selected" : ""}
-            >
-              HTML-CSS
-            </button>
-            <button
-              onClick={clickHandler}
-              data-name="javascript"
-              className={activeTab === "javascript" ? "selected" : ""}
-            >
-              JavaScript
-            </button>
-            <button
-              onClick={clickHandler}
-              data-name="react"
-              className={activeTab === "react" ? "selected" : ""}
-            >
-              React
-            </button>
-
-            <button
-              onClick={clickHandler}
-              data-name="nextjs"
-              className={activeTab === "nextjs" ? "selected" : ""}
-            >
-              NextJs
-            </button>
+            {topics.map((item) => (
+              <button
+                onClick={() => setActiveTab(item.name.toLowerCase())}
+                data-name={item.name.toLowerCase()}
+                key={item.id}
+                className={
+                  activeTab === item.name.toLowerCase() ? "active" : ""
+                }
+              >
+                {item.name}
+              </button>
+            ))}
           </nav>
         </header>
-
-        <main>{renderContent()}</main>
+        <main>
+          {activeTab === null && <Modal />}
+          {topics.map((item) =>
+            item.name.toLowerCase() === activeTab ? (
+              <Content key={item.id} data={item} />
+            ) : null
+          )}
+        </main>
         <footer>
           <p>developed by Milad Akbari - Botostart BOOTCAMP</p>
         </footer>
